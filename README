@@ -23,7 +23,7 @@ import com.vividsolutions.jts.io.ParseException;
 import com.vividsolutions.jts.io.WKTReader;
 
 public static void jtsExample() throws UnsupportedGeometryTypeException{
-	GeometryFactory geomFactory = new GeometryFactory( new PrecisionModel( PrecisionModel.FLOATING ), 4326 );
+    GeometryFactory geomFactory = new GeometryFactory( new PrecisionModel( PrecisionModel.FLOATING ), 4326 );
     Coordinate[] coords = new Coordinate[3];
     coords[0] = new Coordinate( 0, 0 );
     coords[1] = new Coordinate( 1, 1 );
@@ -36,8 +36,8 @@ public static void jtsExample() throws UnsupportedGeometryTypeException{
 }
 
 public static void wktExample() throws UnsupportedGeometryTypeException{
-	WKTReader wktReader = new WKTReader();
-	Polygon wktPolygon = wktReader.read("POLYGON (( 0 0, 0 5, 5 5, 5 0, 0 0 ))");
+    WKTReader wktReader = new WKTReader();
+    Polygon wktPolygon = wktReader.read("POLYGON (( 0 0, 0 5, 5 5, 5 0, 0 0 ))");
 	 
     EncodedPolyline encodedPolygon = PolylineEncoder.encode( wktPolygon );    
     System.out.println( encodedPolygon.getPoints() );
