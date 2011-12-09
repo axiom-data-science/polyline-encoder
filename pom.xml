@@ -8,6 +8,13 @@
 
 	<name>polyline-encoder</name>
 
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License</name>
+			<url>http://www.gnu.org/licenses/lgpl.html</url>
+		</license>
+	</licenses>
+	
 	<properties>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <geotools.version>2.7-M3</geotools.version>
