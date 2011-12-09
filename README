@@ -14,6 +14,7 @@ Example usage:
 import com.axiomalaska.polylineencoder.EncodedPolyline;
 import com.axiomalaska.polylineencoder.PolylineEncoder;
 import com.axiomalaska.polylineencoder.UnsupportedGeometryTypeException;
+import com.axiomalaska.polylineencoder.WktUtil;
 import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.LineString;
@@ -36,8 +37,7 @@ public static void jtsExample() throws UnsupportedGeometryTypeException{
 }
 
 public static void wktExample() throws UnsupportedGeometryTypeException{
-    WKTReader wktReader = new WKTReader();
-    Polygon wktPolygon = wktReader.read("POLYGON (( 0 0, 0 5, 5 5, 5 0, 0 0 ))");
+    Geometry wktPolygon = WktUtil.wktToGeom( "POLYGON (( 0 0, 0 5, 5 5, 5 0, 0 0 ))" );
 	 
     EncodedPolyline encodedPolygon = PolylineEncoder.encode( wktPolygon );    
     System.out.println( encodedPolygon.getPoints() );
