@@ -1,0 +1,9 @@
+polyline-encoder
+----------------
+
+This library allows easy conversion of JTS geometries and WKT to
+Google encoded polylines. It was originally based on an implementation
+of the encoding algorithm by Mark Rambow, but was extended for additional
+functionality and Mavenization.
+
+http://code.google.com/apis/maps/documentation/utilities/polylinealgorithm.html
