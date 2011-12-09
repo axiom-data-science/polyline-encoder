@@ -139,40 +139,6 @@ public class PolylineEncoder {
            ,point3.getCoordinate()           
         });
         return DistanceOp.distance( point, line );
-        /*
-        double u, out = 0.0;
-
-        if (point2.getY() == point3.getY()
-                && point2.getX() == point3.getX()) {
-            out = Math.sqrt(Math.pow(point3.getY() - point.getY(), 2)
-                    + Math.pow(point3.getX() - point.getX(), 2));
-        } else {
-            u = ((point.getY() - point2.getY())
-                    * (point3.getY() - point2.getY()) + (point
-                    .getX() - point2.getX())
-                    * (point3.getX() - point2.getX()))
-                    / (Math.pow(point3.getY() - point2.getY(), 2) + Math
-                            .pow(point3.getX() - point2.getX(), 2));
-
-            if (u <= 0) {
-                out = Math.sqrt(Math.pow(point.getY() - point2.getY(),
-                        2)
-                        + Math.pow(point.getX() - point2.getX(), 2));
-            }
-            if (u >= 1) {
-                out = Math.sqrt(Math.pow(point.getY() - point3.getY(),
-                        2)
-                        + Math.pow(point.getX() - point3.getX(), 2));
-            }
-            if (0 < u && u < 1) {
-                out = Math.sqrt(Math.pow(point.getY() - point2.getY()
-                        - u * (point3.getY() - point2.getY()), 2)
-                        + Math.pow(point.getX() - point2.getX() - u
-                                * (point3.getX() - point2.getX()), 2));
-            }
-        }
-        return out;
-        */
     }
 
     private static int floor1e5(double coordinate) {

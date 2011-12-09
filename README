@@ -7,3 +7,39 @@ of the encoding algorithm by Mark Rambow, but was extended for additional
 functionality and Mavenization.
 
 http://code.google.com/apis/maps/documentation/utilities/polylinealgorithm.html
+
+
+Example usage:
+
+import com.axiomalaska.polylineencoder.EncodedPolyline;
+import com.axiomalaska.polylineencoder.PolylineEncoder;
+import com.axiomalaska.polylineencoder.UnsupportedGeometryTypeException;
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.LineString;
+import com.vividsolutions.jts.geom.Polygon;
+import com.vividsolutions.jts.geom.PrecisionModel;
+import com.vividsolutions.jts.io.ParseException;
+import com.vividsolutions.jts.io.WKTReader;
+
+public static void jtsExample() throws UnsupportedGeometryTypeException{
+	GeometryFactory geomFactory = new GeometryFactory( new PrecisionModel( PrecisionModel.FLOATING ), 4326 );
+    Coordinate[] coords = new Coordinate[3];
+    coords[0] = new Coordinate( 0, 0 );
+    coords[1] = new Coordinate( 1, 1 );
+    coords[2] = new Coordinate( 2, 2 );
+    LineString jtsLineString = geomFactory.createLineString( coords );
+
+    EncodedPolyline encodedLineString = PolylineEncoder.encode( jtsLineString );    
+    System.out.println( encodedLineString.getPoints() );
+    System.out.println( encodedLineString.getLevels() );               
+}
+
+public static void wktExample() throws UnsupportedGeometryTypeException{
+	WKTReader wktReader = new WKTReader();
+	Polygon wktPolygon = wktReader.read("POLYGON (( 0 0, 0 5, 5 5, 5 0, 0 0 ))");
+	 
+    EncodedPolyline encodedPolygon = PolylineEncoder.encode( wktPolygon );    
+    System.out.println( encodedPolygon.getPoints() );
+    System.out.println( encodedPolygon.getLevels() );               
+}
