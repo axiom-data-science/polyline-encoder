@@ -1,27 +1,31 @@
-polyline-encoder
-----------------
+# polyline-encoder
 
 This library allows easy conversion of JTS geometries and WKT to
 Google encoded polylines. It was originally based on an implementation
 of the encoding algorithm by Mark Rambow, but was extended for additional
 functionality and Mavenization.
 
-http://code.google.com/apis/maps/documentation/utilities/polylinealgorithm.html
+https://developers.google.com/maps/documentation/utilities/polylinealgorithm
 
+## Requirements
 
-Example usage:
+Java 11+
+Maven 3+
 
+## Example usage
+
+```
 import com.axiomalaska.polylineencoder.EncodedPolyline;
 import com.axiomalaska.polylineencoder.PolylineEncoder;
 import com.axiomalaska.polylineencoder.UnsupportedGeometryTypeException;
 import com.axiomalaska.polylineencoder.WktUtil;
-import com.vividsolutions.jts.geom.Coordinate;
-import com.vividsolutions.jts.geom.GeometryFactory;
-import com.vividsolutions.jts.geom.LineString;
-import com.vividsolutions.jts.geom.Polygon;
-import com.vividsolutions.jts.geom.PrecisionModel;
-import com.vividsolutions.jts.io.ParseException;
-import com.vividsolutions.jts.io.WKTReader;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.LineString;
+import org.locationtech.jts.geom.Polygon;
+import org.locationtech.jts.geom.PrecisionModel;
+import org.locationtech.jts.io.ParseException;
+import org.locationtech.jts.io.WKTReader;
 
 public static void jtsExample() throws UnsupportedGeometryTypeException{
     GeometryFactory geomFactory = new GeometryFactory( new PrecisionModel( PrecisionModel.FLOATING ), 4326 );
@@ -43,3 +47,4 @@ public static void wktExample() throws UnsupportedGeometryTypeException{
     System.out.println( encodedPolygon.getPoints() );
     System.out.println( encodedPolygon.getLevels() );               
 }
+```
